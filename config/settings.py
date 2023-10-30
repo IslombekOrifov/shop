@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'shop.apps.ShopConfig',
+    'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +57,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart'
             ],
         },
     },
@@ -112,7 +116,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CART_SESSION_ID = 'cart'
+
+# payment setting
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51O1xa1IpY3RAQd5x14Jn1X98MfLABGAmLylMvTn3ZPJyRxS0njBs9iNfTYjuRCSzp0z8aUAgyeiQJ85pw3suQzuY00ncGONhRy'
+STRIPE_SECRET_KEY = 'sk_test_51O1xa1IpY3RAQd5xHEAi0ViigqeQWGbFEQ1PtjmIdG56RefS3ukUDgEFULHEjCE5VZdqOJUmofvyOYjWP1TS3a7w00fuOAd9IQ'
+STRIPE_API_VERSION = '2022-08-01'
+STRIPE_WEBHOOK_SECRET = 'whsec_c5bd91bd9b1320de8e34897bdce2c1c712f516137bf8d64ecac9b463654c1a5c'
