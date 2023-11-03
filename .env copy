@@ -1,0 +1,8 @@
+SECRET_KEY=secret key
+STRIPE_PUBLISHABLE_KEY=stripe key
+STRIPE_SECRET_KEY=stripe secret
+STRIPE_API_VERSION=stripe version
+STRIPE_WEBHOOK_SECRET=webhook secret
+REDIS_HOST=redis host
+REDIS_PORT=port
+REDIS_DB=db

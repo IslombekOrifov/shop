@@ -1,4 +1,5 @@
 from pathlib import Path
+from decouple import config as de_config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h1!wr__9*i1=5ypqhi#hk@yh8hak*hsk*j*pt29=3ob#&qvq)5'
+SECRET_KEY = de_config("SECRET_KEY", default="Your key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -131,13 +132,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CART_SESSION_ID = 'cart'
 
 # payment setting
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51O1xa1IpY3RAQd5x14Jn1X98MfLABGAmLylMvTn3ZPJyRxS0njBs9iNfTYjuRCSzp0z8aUAgyeiQJ85pw3suQzuY00ncGONhRy'
-STRIPE_SECRET_KEY = 'sk_test_51O1xa1IpY3RAQd5xHEAi0ViigqeQWGbFEQ1PtjmIdG56RefS3ukUDgEFULHEjCE5VZdqOJUmofvyOYjWP1TS3a7w00fuOAd9IQ'
-STRIPE_API_VERSION = '2022-08-01'
-STRIPE_WEBHOOK_SECRET = 'whsec_c5bd91bd9b1320de8e34897bdce2c1c712f516137bf8d64ecac9b463654c1a5c'
+STRIPE_PUBLISHABLE_KEY = de_config("STRIPE_PUBLISHABLE_KEY", default="stripe key")
+STRIPE_SECRET_KEY = de_config("STRIPE_SECRET_KEY", default="Stripe secret")
+STRIPE_API_VERSION = de_config("STRIPE_API_VERSION", default="stripe version")
+STRIPE_WEBHOOK_SECRET = de_config("STRIPE_WEBHOOK_SECRET", default="stripe webhook secret")
 
 
 # redis settings
-REDIS_HOST = 'localhost'
-REDIS_PORT = 6379
-REDIS_DB = 1
+REDIS_HOST = de_config("REDIS_HOST", default="Your host")
+REDIS_PORT = de_config("REDIS_PORT", default="Your port")
+REDIS_DB = de_config("REDIS_DB", default="Your db")
