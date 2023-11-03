@@ -1,2 +1,4 @@
 # shop
-This project build in Django.
+It's a simple e-commerce web app.
+
+
